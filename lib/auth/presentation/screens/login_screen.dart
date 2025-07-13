@@ -22,7 +22,7 @@ class _LoginScreenState extends State<LoginScreen>
       animatingHeight = isRe ? 250 : 320;
     });
 
-    // Delay helps smoother UX
+
     await Future.delayed(const Duration(milliseconds: 300));
     setState(() {
       showForm = true;
@@ -32,7 +32,7 @@ class _LoginScreenState extends State<LoginScreen>
   Future<void> goBack() async {
     setState(() => showForm = false);
 
-    // Wait before expanding image again
+
     await Future.delayed(const Duration(milliseconds: 300));
     setState(() => animatingHeight = 570);
   }
@@ -74,7 +74,7 @@ class _LoginScreenState extends State<LoginScreen>
 
           const SizedBox(height: 20),
 
-          // 🔹 AnimatedSwitcher for login/register screen
+
           Expanded(
             child: AnimatedSwitcher(
               duration: const Duration(milliseconds: 500),
