@@ -1,4 +1,5 @@
 import 'package:big_g_kross/auth/presentation/screens/bottom_screens/bottom_text_field_screen.dart';
+
 import 'package:big_g_kross/auth/presentation/screens/bottom_screens/button_screen.dart';
 import 'package:big_g_kross/const/app_colors.dart';
 import 'package:flutter/material.dart';
@@ -19,7 +20,7 @@ class _LoginScreenState extends State<LoginScreen>
   Future<void> animate(bool isRe) async {
     setState(() {
       isRegister = isRe;
-      animatingHeight = isRe ? 250 : 320;
+      animatingHeight = isRe ? 100 : 320;
     });
 
 
@@ -34,7 +35,7 @@ class _LoginScreenState extends State<LoginScreen>
 
 
     await Future.delayed(const Duration(milliseconds: 300));
-    setState(() => animatingHeight = 570);
+    setState(() => animatingHeight = 540);
   }
 
   @override

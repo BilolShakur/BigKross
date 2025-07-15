@@ -1,6 +1,8 @@
 import 'package:big_g_kross/auth/presentation/widgets/login_buttons.dart';
 import 'package:big_g_kross/auth/presentation/widgets/tect_field.dart';
+import 'package:big_g_kross/const/app_text_styles.dart';
 import 'package:flutter/material.dart';
+import 'package:sign_in_button/sign_in_button.dart';
 
 class LoginTextField extends StatefulWidget {
   final bool isRegister; // 🔹 New flag
@@ -40,60 +42,69 @@ class _LoginTextFieldState extends State<LoginTextField> {
       key: _formKey,
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            if (isRegister) ...[
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              if (isRegister) ...[
+                CustomTextField(
+                  label: "Name",
+                  isRequired: true,
+                  controller: _nameController,
+                ),
+                const SizedBox(height: 40),
+              ],
+
               CustomTextField(
-                label: "Full Name",
+                label: "Email or password",
+                keyboardType: TextInputType.emailAddress,
                 isRequired: true,
-                controller: _nameController,
-              ),
-              const SizedBox(height: 40),
-            ],
+                controller: _emailController,
 
-            CustomTextField(
-              label: "Email",
-              keyboardType: TextInputType.emailAddress,
-              isRequired: true,
-              controller: _emailController,
-
-              validator: (value) {
-                if (!value!.contains('@')) return "Enter a valid email";
-                return null;
-              },
-            ),
-            const SizedBox(height: 40),
-
-            CustomTextField(
-              label: "Password",
-              isPassword: true,
-              isRequired: true,
-              controller: _passwordController,
-            ),
-            const SizedBox(height: 40),
-
-            if (isRegister)
-              CustomTextField(
-                label: "Confirm Password",
-                isPassword: true,
-                isRequired: true,
-                controller: _confirmPasswordController,
                 validator: (value) {
-                  if (value != _passwordController.text) {
-                    return "Passwords don't match";
-                  }
+                  if (!value!.contains('@')) return "Enter a valid email";
                   return null;
                 },
               ),
+              const SizedBox(height: 40),
 
-            const SizedBox(height: 60),
+              CustomTextField(
+                label: "Password",
+                isPassword: true,
+                isRequired: true,
+                controller: _passwordController,
+              ),
+              const SizedBox(height: 40),
 
-            GestureDetector(
-              onTap: _handleSubmit,
-              child: LoginButtons(text: isRegister ? "Register" : "Login"),
-            ),
-          ],
+              if (isRegister)
+                CustomTextField(
+                  label: "Confirm Password",
+                  isPassword: true,
+                  isRequired: true,
+                  controller: _confirmPasswordController,
+                  validator: (value) {
+                    if (value != _passwordController.text) {
+                      return "Passwords don't match";
+                    }
+                    return null;
+                  },
+                ),
+              SizedBox(height: isRegister ? 50 : 0),
+              GestureDetector(
+                onTap: _handleSubmit,
+                child: LoginButtons(text: isRegister ? "Register" : "Login"),
+              ),
+              const SizedBox(height: 20),
+
+              Text("Or", style: AppTextStyles.onDark),
+              SizedBox(height: 10),
+              SizedBox(
+                width: 320,
+                height: 50,
+                child: SignInButton(Buttons.google, onPressed: () {}),
+              ),
+            ],
+          ),
         ),
       ),
     );

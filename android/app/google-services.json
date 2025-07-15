@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "537488602085",
+    "project_id": "biggkross-9b891",
+    "storage_bucket": "biggkross-9b891.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:537488602085:android:121e1a2fea0bd7c25a350c",
+        "android_client_info": {
+          "package_name": "com.example.big_g_kross"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "537488602085-qqvptsioj78v3v3vcn8q89ng5che1elm.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8u7j3i-XJ7XFlubTz_0m_sdf7xUdvf7M"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "537488602085-qqvptsioj78v3v3vcn8q89ng5che1elm.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
